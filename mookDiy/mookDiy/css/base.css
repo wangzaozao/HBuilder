@@ -1,0 +1,631 @@
+a:default{
+	text-decoration: none;
+}
+a:link{/*加了这个属性终于鼠标移开后不会有横线了*/
+	text-decoration: none;
+}
+/*导航条*/
+.navbar-default{
+	background: #fff;
+	    box-shadow: 0 4px 8px 0 rgba(7,17,27,.1);
+}
+.navbar-toggle{
+	height: 70px;
+}
+.logo{
+	padding-top:10px;
+	padding-bottom:10px;
+	text-align: center;
+}
+/*顶部*/
+.navbar-nav>li>a {
+	
+    padding-top: 25px;
+}
+.nav li{
+	padding-left: 15px;
+	font-size: 17px;
+}
+
+.navbar-default .navbar-nav>li>a{
+	color: #4d555d;
+}
+.navbar-form{
+	height: 70px;
+	/*vertical-align: middle;*/
+	margin-top: 2px;
+	margin-bottom: 0px;
+	width:300px;
+}
+.form-group input{
+border: none;
+padding-top: 14px;
+}
+.btn-default{
+	border-color: #fff;
+}
+.navbar-form hr{
+	background-color: #ccc;
+	height: 1px;/*没有height显示不出来颜色*/	
+	margin-left: 10px;
+	margin-top:10px;
+	margin-bottom: 0px;
+}
+.sousuo{
+	margin-top: 8px;
+    margin-left: 10px;
+}
+.navbar-right li{
+	font-size: small;
+}
+#dhyou a{/*改啥都不行只好又定义了一个id*/
+	color: #666;
+}
+#dhyou a:hover,#dhyou .badge a:hover{
+	color: red;
+}
+#dhyou .badge{
+	color: white;
+}
+.navbar{
+	margin-bottom: 40px;
+}
+/*列表、轮播器*/
+.list{
+	position: relative;
+	box-shadow: 0 12px 24px 0 rgba(7,17,27,.2);
+	margin-bottom: 40px;/*下边距只能在阴影层加，在阴影层的下面添加边距会边距显示成白色*/
+}
+.fudong{
+	position: absolute;
+    display: none;
+	height: 434px;
+	background: ghostwhite;
+	z-index: 16;
+	right: 117px;
+}
+.fudong h6{
+	    font-size: 12px;
+    color: #07111B;
+    line-height: 24px;
+    background-color: #fff;
+}
+.fudong a{
+	    font-size: 14px;
+    color: #4D555D;
+    line-height: 24px;
+    margin-right: 12px;
+}
+.fudong .media img{
+	width: 64px;
+	height: 42px;
+}
+.fudong .media-body{
+	    padding-top: 10px;
+    padding-left: 5px;
+}
+.fudong .media-body h6{
+	margin-bottom: 0px;
+}
+.fudong .biaoqian h6:after{
+	background-color: #cdcdcd;
+	content: "";
+	display: inline-block;
+	height: 1px;
+	width: 85%;
+	vertical-align: middle;	
+	margin-left: 8px;
+}
+
+.fudong .media-body span{
+	font-size: 12px;
+    color: #4D555D;
+    line-height: 20px;
+    margin-right: 12px;
+}
+.first-row{
+	margin-top: 40px;
+}
+.list .col-lg-2{
+	padding: 0px;
+}
+.list .list-group{
+	margin-bottom: 0px;
+}
+.list .list-group li{
+	background-color: black;
+	color: rgba(255,255,255,.6);
+	font-size: 18px;
+	border: 0px;
+   padding-left: 15px;
+   padding-right: 0px;
+   padding-top: 15px;
+	width:100% ;
+	height: 60px;
+}
+.list .list-group li:first-child{
+	height: 70px;/*li:first-child控制第一个li标签*/
+}
+.list .list-group li:last-child{
+	height: 70px;
+}
+.list .list-group a{
+	color:rgba(255,255,255,.6);
+	text-decoration: none;	
+	display: block;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.list .list-group span{
+	line-height: 46px;
+	vertical-align: middle;
+}
+.list .list-group a:hover{
+	text-decoration: none;
+	background-color: darkgray;
+}
+
+.lunboqi{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.liebiaozu{
+	/*border-bottom: 1px solid rgba(12,12,12,0.2);
+	border-right: 1px solid rgba(12,12,12,0.2);
+	margin-bottom: 40px;*/
+}
+.liebiaozu .col-lg-2{
+	height:119px;
+	
+}
+.liebiaozu .thumbnail{
+	margin-bottom: 0px;
+
+    padding-bottom:4px;
+	padding-top:14px ;   
+	height: 119px;
+	border: 0px;
+	
+}
+.liebiaozu a{
+	text-decoration: none;
+	
+}
+
+.thumbnail:hover{/*竟然可以这样就实现上移，棒！*/
+    padding-bottom:14px;
+	padding-top:4px; 	
+}
+.liebiaozu h5{
+	/*padding-left: 0px;
+	padding-right: 0px;*/
+	font-size: 14px;
+	font-weight: bold;
+	color: #07111B;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 3px;
+}
+.liebiaozu p{
+	font-size: 12px;
+	color: #93999F;
+	text-align: center;
+}
+.liebiaozu img{
+	padding-top: 10px;
+}
+/*实战推荐*/
+.szbt{
+	margin-bottom: 20px;
+}
+/*.szbt span{
+	width: 500px;
+}*/
+.szbt h3{
+	color: #666;
+	text-align: center;
+}
+.szbt em{
+	padding-top: 7px;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-style: normal;
+	font-size: 20px;
+	font-weight: bold;
+	color: #4D555D;
+}
+.shizhan{
+	margin-bottom: 80px;
+}
+.shizhan img{
+	border-radius: 8px;/*矩形角上变成弧*/
+	margin-bottom: 20px;
+}
+.shizhan .col-lg-2{
+	position:relative;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.shizhan label{
+	position:absolute;
+	    bottom: 132px;
+    left: 21px;
+}
+
+.shizhan p{
+	color: #07111B;
+	font-size: 16px;
+
+}
+.shizhan p:hover,.shizhan a:hover{
+	text-decoration: none;
+	color: red;
+}
+.szCaption{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.szCaption span{
+	    font-size: 12px;
+    color: #93999F;
+    margin-right: 5px;
+}
+#stars{
+	margin-right: 0px;
+}
+.glyphicon-star{
+	color: orange;
+	font-size: 12px;
+}
+#jiazhi{
+	padding-top: 8px;
+	font-size: 14px;
+    color: #4D555D;
+
+}
+.hotLabel{
+	background-color: red;
+	z-index: 4;/*层数*/
+	bottom: 239px;
+    left: -2px;
+    font-size:12px ;
+	position: absolute;
+	border: 2px solid #fff;
+	border-radius: 12px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.hotLabel span{
+	margin-left: 2px;
+	margin-right: 2px;
+	text-align: center;
+	font-size: 10px;
+	color: #fff;
+    font-family: dincondm;
+}
+#hotTit{
+	background: orange;
+}
+/*新上好课*/
+#xshk{
+	margin-bottom:20px;
+}
+/*精彩手记及猿问*/
+.jcsjyw{
+	margin-bottom: 40px;
+}
+.remen{
+	    margin-left: 20px;
+	    margin-right: 20px;
+	    padding-bottom: 20px;
+	    box-shadow: 0 4px 8px 0 rgba(7,17,27,.05);/*产生盒子阴影*/
+}
+.remen .badge{
+	background-color: rgba(0,180,60,.5);
+}
+.media img{
+	width: 72px;
+	height: 72px;/*定义宽高就能实现缩小图片*/
+	border-radius: 8px;
+}
+.media-heading{
+	font-size: 16px;
+    color: rgba(0,180,60,.8);
+    line-height: 24px;
+}
+.media p{
+	font-weight: 200;
+    font-size: 12px;
+    color: #4D555D;
+    line-height: 24px;
+    margin-top: 12px;
+}
+.media a,#hdnum{
+	color: rgba(0,180,60,.6);
+	font-size: 12px;
+	font-weight: 200;
+	
+}
+.media a:hover,#hdnum:hover{
+	text-decoration: none;
+}
+#wqhg{
+	margin-top: 25px;
+	color: #93999F;
+	font-size: 12px;
+	line-height: 16px;
+}
+#wqhg:after{/*添加文字后面的横线*/
+	background-color: #cdcdcd;
+	content: "";
+	display: inline-block;
+	height: 1px;
+	width: 80%;
+	vertical-align: middle;
+}
+.wqArticle h4{
+	font-size: 15px;
+    color: #4D555D;
+    line-height: 24px;
+}
+.wqArticle h4:hover,#tiaozhuan:hover{
+	text-decoration: none;
+	color:rgba(0,180,60,.6);/*.6是颜色透明度*/
+}
+/*相关猿问*/
+
+.xgyw{
+		    margin-left: 20px;
+	    margin-right: 20px;
+	    padding-bottom: 20px;
+	    box-shadow: 0 4px 8px 0 rgba(7,17,27,.05);
+	margin-top:30px;
+	padding-top: 20px;
+	overflow: hidden;
+}
+
+.ywbt{
+	color:rgba(0,180,60,.6);/*.6是颜色透明度*/	
+	margin-bottom: 8px;
+}
+.xgyw a{
+	
+}
+#tiaozhuan{
+	color:#4D555D ;
+}
+#caina{
+	font-size: 12px;
+    color: #07111B;
+    line-height: 24px;
+    display: inline-block;
+    margin-top: 8px;
+    margin-bottom: 2px;
+}
+#wenda{
+	margin-top:0px ;
+	font-size: 12px;
+    color: #4D555D;
+    line-height: 24px;
+    font-weight: 200;
+	word-break: break-all;/*这个操作能使网址不溢出*/	
+}
+/*手记文章*/
+.sjArticle{
+		    margin-left: 20px;
+	    margin-right: 20px;
+	    padding-bottom: 20px;
+	box-shadow: 0 4px 8px 0 rgba(7,17,27,.05);
+	margin-bottom: 50px;
+}
+.sjTu{
+	padding-top: 5px;
+	color: rgba(0,140,200,.6);
+}
+.sjArticle img{
+	width: 72px;
+	height: 48px;
+}
+.sjArticle .media{
+	margin-top: 0px;
+}
+.sjArticle h4{
+	margin-top: 7px;
+   color: #4D555D;	
+}
+.sjBottom span{
+	padding-right: 15px;
+	font-size: 12px;
+    color: #93999F;
+
+    font-weight: 200;
+}
+/*慕课精英名师*/
+.mkTeacher{
+	background-image:url(../img/mkbg.jpg) ;
+	padding-bottom: 40px;
+	margin-bottom: 30px;
+}
+.mkTeacher em{
+	color: #fff;
+}
+.mkTeacher .col-lg-2{	
+    position: relative;
+    width: 216px;
+    height: 248px;
+    margin-right: 18px;
+    text-align: center;
+    background: rgba(255,255,255,.8);
+    box-shadow: 0 4px 8px 0 rgba(7,17,27,.05);
+    border-radius: 12px;
+//    padding-top: 0px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    /*overflow: hidden;*/
+}
+
+.t-imgs{
+
+}
+.mkTeacher .col-lg-2 img{
+	position: absolute;
+	
+	    left: 60px;
+	    	bottom: 189px;
+	width: 96px;
+	height: 96px;
+	
+	border-radius: 50%;
+	text-align: center;
+
+
+}
+.teachers{
+	padding-top: 20px;
+}
+.t_name{
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 80px;
+    margin-bottom: 0px;
+    white-space: nowrap;
+    color: #07111b;
+    font-weight: 700;
+}
+.t_occup{
+	font-size: 12px;
+    margin-bottom: 6px;
+    color: #4D555D;
+    height: 24px;
+    line-height: 24px;
+}
+
+.t_capt{
+	height: 72px;
+	overflow: hidden;
+	font-size: 12px;
+    line-height: 24px;
+    color: #4D555D;
+    font-weight: 200;
+}
+
+/*以下为用css方式实现*/
+/*.mkTeacher .col-lg-2:hover{
+	background-color: #fff;
+    padding-top: 135px;
+}*/
+/*#s{
+	height: 170px;
+}*/
+/*
+.mkTeacher .col-lg-2:hover img{
+	height: 70px;
+	width: 70px;
+		left: 72px;
+		top: -30px;
+}
+.mkTeacher .col-lg-2:hover .t_name{
+	display: none;
+}
+.mkTeacher .col-lg-2:hover .t_occup{
+	display: none;
+}
+
+.mkTeacher .col-lg-2:hover .t_capt{
+	height: 170px;	
+}*/
+.glyphicon-education{
+	width: 100%;
+	color: purple;
+	font-size: larger;
+}
+.qmx img{
+	width: 56px;
+	height:56px;
+	border-radius: 50%;
+}
+.qmx .col-lg-10{
+	text-align: center;
+	padding: 0px;
+}
+#line1{
+	    font-size: 14px;
+    color: #07111B;
+    line-height: 16px;
+    margin-top: 8px;
+}
+#line2{
+	font-size: 12px;
+    color: #93999F;
+    font-weight: 200;
+}
+.dztTeacher{
+	margin-bottom: 50px;
+   box-shadow: 0 4px 8px 0 rgba(7,17,27,.05);
+   padding-bottom: 30px;	
+}
+
+.footer{
+   position: relative;
+	padding-left: 40px;
+}
+.footer a{
+	margin-right: 10px;
+    color: #99a1a6;
+    font-size: 14px ;
+}
+.yqlj{
+	padding-bottom: 10px;
+
+}
+/*像a span不能设置边距,可以设置行高来产生距离*/
+.right{
+	    font-size: 12px;
+    color: #93999F;
+    line-height: 24px;
+}
+.footer .col-lg-2{
+	padding-left:0px ;
+}
+.footer .col-lg-5{
+	padding-left:0px ;
+	padding-right: 0px;
+}
+.icon2{
+	padding-right: 80px;
+}
+.icon1,.icon2{
+	text-align: center;
+	padding-bottom: 40px;
+}
+.icon1 i,.icon2 i{
+	font-size: 32px;
+	color:#93999F;
+}
+.icon1 p,.icon2 p{
+	font-size: 12px;
+    color: #4D555D;
+    line-height: 15px;
+    margin-top: 4px;
+}
+.footer img{
+	position: absolute;
+	display:none ;
+    bottom: 115px;
+    width: 147px;
+}
+.icon1:hover img{/*用这种方法的话，icon1应该是img的父元素，而且img写成.icon1 img就不对了*/
+
+	display: -webkit-box;
+}
+/*右部*/
+.youbu{
+	position: fixed;
+	bottom: 150px;
+	right: 0px;
+}
+#listlist li{
+	background-color: #fff;
+}

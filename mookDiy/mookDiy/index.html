@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>慕课网-程序员的梦工厂</title>
+
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_471138_dbdvanh0bz2awcdi.css" />
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+		<script type="text/javascript">
+			//显示悬浮层  
+			function showInform() {
+				document.getElementById("inform").style.display = 'block';
+			}
+			//隐藏悬浮层  
+			function hiddenInform() {
+				document.getElementById("inform").style.display = 'none';
+			}
+            //实现图片慢慢缩小文字慢慢上来
+			function fade(id1, id2, id3, id4) {
+				if(!id1 || !id2 || !id3 || !id4) {
+					throw "fade function parameter errer.";
+					return;
+				}
+				var ele1 = document.getElementById(id1),
+					ele2 = document.getElementById(id2),
+					ele3 = document.getElementById(id3),
+					ele4 = document.getElementById(id4);
+				ele4.onmouseenter = function() {
+					ele2.style.display = 'none';
+					ele4.style.background = '#fff';
+					ele4.style.paddingTop = '135px';
+					_w = ele1.offsetWidth,
+						_h = ele1.offsetHeight,
+						_l = ele1.offsetLeft,
+						_t = ele1.offsetTop,
+						/*改变bottom没有起作用*/
+						speed = 1;
+					_speed = _h / _w * speed;
+					_tall = ele3.offsetHeight;
+					_pt = 135;
+					if(_w <= 70 || _h <= 70) {
+						return;
+					}
+					clearInterval(ele1.timer);
+					ele1.timer = setInterval(function() {
+						_w -= speed;
+						_l += speed / 2;
+						_h -= _speed;
+						_t += speed / 3;
+						_pt -= 6 * speed;
+						_tall += 5 * speed;
+						if(_w <= 70 || _h <= 70) {
+							clearInterval(ele1.timer);
+						}
+						ele1.style.width = _w + "px";
+						ele1.style.left = _l + "px";
+						ele1.style.height = _h + "px";
+						ele1.style.top = _t + "px";
+						if(_pt >= 50) {
+							ele4.style.paddingTop = _pt + "px";
+
+						}
+						if(_tall <= 170) {
+							ele3.style.height = _tall + "px"; //注意有分号
+						}
+
+					}, 5); //100，计时用的吧					
+				}
+				ele4.onmouseleave = function() {
+					clearInterval(ele1.timer);
+					ele4.style.paddingTop = "0px";
+					ele4.style.backgroundColor = "rgba(255,255,255,.8)";
+					ele1.style.left = "60px";
+					ele1.style.bottom = "189px";
+					ele1.style.top = "-37px";
+					ele1.style.width = "96px";
+					ele1.style.height = "96px";
+
+					ele2.style.display = "block";
+					ele3.style.height = "72px";
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default ">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+					<img src="img/logo.jpg" class="img-responsive logo" />
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="#">免费课程</a>
+						</li>
+						<li>
+							<a href="#">职业路径</a>
+						</li>
+						<li>
+							<a href="#">实战</a>
+						</li>
+						<li>
+							<a href="#">猿问</a>
+						</li>
+						<li>
+							<a href="#">手记</a>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-left">
+						<div class="sousuo">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="前端入门  JAVA入门">
+							</div>
+							<button type="submit" class="btn btn-default glyphicon glyphicon-search"></button>
+						</div>
+
+						<hr>
+						<!-- 我找了半天的分割线 -->
+					</form>
+					<!-- Buttons -->
+
+					<ul class="nav navbar-nav navbar-right" id="dhyou">
+						<li>
+							<a href="#">下载APP</a>
+						</li>
+						<li>
+							<a href="#"><span class="badge"> <io class=" glyphicon glyphicon-shopping-cart"></io>&nbsp;购物车</span></a>
+						</li>
+						<li>
+							<a href="#">登录&nbsp;&nbsp;/&nbsp;&nbsp;注册</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+		<!--列表、轮播器-->
+		<div class="container list">
+
+			<div class="row">
+				<div class="col-lg-2">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<a href="#" onmouseover="showInform();" onmouseout="hiddenInform();"><span>前端开发</span><span class="pull-right">></span></a>
+						</li>
+						<li class="list-group-item">
+							<a href="#" onmouseover="showInform();" onmouseout="hiddenInform();"><span>后端开发</span><span class="pull-right">></span></a>
+						</li>
+						<li class="list-group-item">
+							<a href="#" onmouseover="showInform();" onmouseout="hiddenInform();"><span>移动开发</span><span class="pull-right">></span></a>
+						</li>
+						<li class="list-group-item">
+							<a href="#" onmouseover="showInform();" onmouseout="hiddenInform();"><span>数据库</span><span class="pull-right">></span></a>
+						</li>
+						<li class="list-group-item">
+							<a href="#" onmouseover="showInform();" onmouseout="hiddenInform();"><span>云计算&大数据</span><span class="pull-right">></span></a>
+						</li>
+						<li class="list-group-item">
+							<a href="#" onmouseover="showInform();" onmouseout="hiddenInform();"><span>运维&测试</span><span class="pull-right">></span></a>
+						</li>
+						<li class="list-group-item">
+							<a href="#" onmouseover="showInform();" onmouseout="hiddenInform();"><span>UI设计</span><span class="pull-right">></span></a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-lg-7 fudong" id="inform" onmouseover="showInform();" onmouseout="hiddenInform();">
+					<div class="biaoqian">
+						<h6>基础</h6>
+						<a href="#">HTML/CSS</a>
+						<a href="#">JaveScript</a>
+						<a href="#">jQuery</a>
+						<h6>进阶</h6>
+						<a href="#">HTML/CSS</a>
+						<a href="#">JaveScript</a>
+						<a href="#">jQuery</a>
+						<a href="#">Html5</a>
+						<a href="#">CSS3</a>
+						<a href="#">Node.js</a>
+						<a href="#">AnjularJS</a>
+						<a href="#">Bootstrap</a>
+						<a href="#">React</a>
+						<a href="#">Sass/Less</a>
+						<a href="#">Vue.js</a>
+						<a href="#">WebApp</a>
+					</div>
+					<div class="row first-row">
+						<div class="col-lg-5">
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+										<img class="media-object" src="img/tupian.jpg" alt="...">
+									</a>
+								</div>
+								<div class="media-body">
+									<h6>前端进阶：响应式开发与常用框架 </h6>
+									<span>职业路径</span><span>5步&nbsp;/&nbsp;30课</span><span class="glyphicon glyphicon-user">&nbsp;职业路径</span><br />
+									<span><i class="glyphicon glyphicon-yen"></i>389</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-5">
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+										<img class="media-object" src="img/tupian.jpg" alt="...">
+									</a>
+								</div>
+								<div class="media-body">
+									<h6>前端进阶：响应式开发与常用框架 </h6>
+									<span>职业路径</span><span>5步&nbsp;/&nbsp;30课</span><span class="glyphicon glyphicon-user">&nbsp;职业路径</span><br />
+									<span><i class="glyphicon glyphicon-yen"></i>389</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-5">
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+										<img class="media-object" src="img/tupian.jpg" alt="...">
+									</a>
+								</div>
+								<div class="media-body">
+									<h6>前端进阶：响应式开发与常用框架 </h6>
+									<span>职业路径</span><span>5步&nbsp;/&nbsp;30课</span><span class="glyphicon glyphicon-user">&nbsp;职业路径</span><br />
+									<span><i class="glyphicon glyphicon-yen"></i>389</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-5">
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+										<img class="media-object" src="img/tupian.jpg" alt="...">
+									</a>
+								</div>
+								<div class="media-body">
+									<h6>前端进阶：响应式开发与常用框架 </h6>
+									<span>职业路径</span><span>5步&nbsp;/&nbsp;30课</span><span class="glyphicon glyphicon-user">&nbsp;职业路径</span><br />
+									<span><i class="glyphicon glyphicon-yen"></i>389</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8">
+					<div class="row">
+						<div class="col-lg-10 lunboqi">
+							<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+								<!-- Indicators -->
+								<ol class="carousel-indicators">
+									<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+									<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+									<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+									<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+									<li data-target="#carousel-example-generic" data-slide-to="4"></li>
+									<li data-target="#carousel-example-generic" data-slide-to="5"></li>
+								</ol>
+
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner" role="listbox">
+									<div class="item active">
+										<img src="img/dt_1.jpg" alt="...">
+
+									</div>
+									<div class="item">
+										<img src="img/dt_2.jpg" alt="...">
+
+									</div>
+									<div class="item">
+										<img src="img/dt_3.jpg" alt="...">
+
+									</div>
+									<div class="item">
+										<img src="img/dt_4.jpg" alt="...">
+
+									</div>
+									<div class="item">
+										<img src="img/dt_5.jpg" alt="...">
+
+									</div>
+									<div class="item">
+										<img src="img/dt_6.jpg" alt="...">
+
+									</div>
+								</div>
+
+								<!-- Controls -->
+								<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+									<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+									<span class="sr-only">Previous</span>
+								</a>
+								<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								</a>
+							</div>
+						</div>
+
+					</div>
+					<div class="row liebiaozu">
+						<!--不管row多大，一个row里有十份-->
+						<div class="col-lg-2">
+							<div class="thumbnail">
+
+								<img src="img/r-1.jpg" alt="...">
+								<div class="caption">
+									<h5>Web前端攻城狮</h5>
+									<p>互联网时代最火爆的技术</p>
+								</div>
+
+							</div>
+						</div>
+						<div class="col-lg-2">
+							<div class="thumbnail">
+
+								<img src="img/r-2.jpg" alt="...">
+								<div class="caption">
+									<h5>Web前端攻城狮</h5>
+									<p>互联网时代最火爆的技术</p>
+								</div>
+
+							</div>
+						</div>
+						<div class="col-lg-2">
+							<div class="thumbnail">
+
+								<img src="img/r-3.jpg" alt="...">
+								<div class="caption">
+									<h5>Web前端攻城狮</h5>
+									<p>互联网时代最火爆的技术</p>
+								</div>
+
+							</div>
+						</div>
+						<div class="col-lg-2">
+							<div class="thumbnail">
+
+								<img src="img/r-4.jpg" alt="...">
+								<div class="caption">
+									<h5>Web前端攻城狮</h5>
+									<p>互联网时代最火爆的技术</p>
+								</div>
+
+							</div>
+						</div>
+						<div class="col-lg-2">
+							<div class="thumbnail">
+
+								<img src="img/r-5.jpg" alt="...">
+								<div class="caption">
+									<h5>Web前端攻城狮</h5>
+									<p>互联网时代最火爆的技术</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<!--实战推荐-->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10  szbt">
+
+					<h3><img src="img/t-1.jpg"/><!--h3换成span就居中不了了-->
+						&nbsp;&nbsp;&nbsp;<em>实</em>&nbsp;/&nbsp;
+						<em>战</em>&nbsp;/&nbsp;
+						<em>推</em>&nbsp;/&nbsp;
+						<em>荐</em>&nbsp;/&nbsp;&nbsp;
+					<img src="img/t-2.jpg"/></h3>
+
+				</div>
+			</div>
+			<div class="row shizhan">
+				<div class="col-lg-2">
+					<img src="img/sz1.jpg" class="img-responsive" />
+					<div class="szCaption">
+						<label class="badge">Python</label>
+						<a href="###">
+							<p>全网最热Python3入门+进阶 更快上手实际开发</p>
+						</a>
+						<span>实战</span>
+						<span>初级</span>
+						<span><i class="glyphicon glyphicon-user"></i>1196</span>
+						<span id="stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i></span>
+						<p id="jiazhi">&yen;&nbsp;366.00</p>
+					</div>
+
+				</div>
+				<div class="col-lg-2">
+					<img src="img/sz2.jpg" class="img-responsive" />
+					<div class="szCaption">
+						<label class="badge">Python</label>
+						<a href="###">
+							<p>全网最热Python3入门+进阶 更快上手实际开发</p>
+						</a>
+						<span>实战</span>
+						<span>初级</span>
+						<span><i class="glyphicon glyphicon-user"></i>1196</span>
+						<span id="stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i></span>
+						<p id="jiazhi">&yen;&nbsp;366.00</p>
+					</div>
+
+				</div>
+				<div class="col-lg-2">
+					<img src="img/sz3.jpg" class="img-responsive" />
+					<div class="szCaption">
+						<div class="badge hotLabel">
+							<span>NEW</span>
+						</div>
+						<label class="badge">Python</label>
+						<a href="###">
+							<p>全网最热Python3入门+进阶 更快上手实际开发</p>
+						</a>
+						<span>实战</span>
+						<span>初级</span>
+						<span><i class="glyphicon glyphicon-user"></i>1196</span>
+						<span id="stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i></span>
+						<p id="jiazhi">&yen;&nbsp;366.00</p>
+					</div>
+
+				</div>
+				<div class="col-lg-2">
+					<img src="img/sz4.jpg" class="img-responsive" />
+					<div class="szCaption">
+						<label class="badge">Python</label>
+						<a href="###">
+							<p>全网最热Python3入门+进阶 更快上手实际开发</p>
+						</a>
+						<span>实战</span>
+						<span>初级</span>
+						<span><i class="glyphicon glyphicon-user"></i>1196</span>
+						<span id="stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i></span>
+						<p id="jiazhi">&yen;&nbsp;366.00</p>
+					</div>
+
+				</div>
+				<div class="col-lg-2">
+					<img src="img/sz5.jpg" class="img-responsive" />
+					<div class="szCaption">
+						<div class="badge hotLabel" id="hotTit">
+							<span>HOT</span>
+						</div>
+						<label class="badge">Python</label>
+						<a href="###">
+							<p>全网最热Python3入门+进阶 更快上手实际开发</p>
+						</a>
+						<span>实战</span>
+						<span>初级</span>
+						<span><i class="glyphicon glyphicon-user"></i>1196</span>
+						<span id="stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i></span>
+						<p id="jiazhi">&yen;&nbsp;366.00</p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--新上好课-->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 szbt">
+
+					<h3><img src="img/t-3.jpg"/>
+						&nbsp;&nbsp;&nbsp;<em>新</em>&nbsp;/&nbsp;
+						<em>上</em>&nbsp;/&nbsp;
+						<em>好</em>&nbsp;/&nbsp;
+						<em>课</em>&nbsp;/&nbsp;&nbsp;
+					<img src="img/t-4.jpg"/></h3>
+
+				</div>
+			</div>
+			<div class="row shizhan" id="xshk">
+				<div class="col-lg-2">
+					<img src="img/hk1.jpg" class="img-responsive" />
+					<div class="szCaption">
+						<label class="badge">Python</label>
+						<a href="###">
+							<p>全网最热Python3入门+进阶 更快上手实际开发</p>
+						</a>
+						<span>实战</span>
+						<span>初级</span>
+						<span><i class="glyphicon glyphicon-user"></i>1196</span>
+						<span id="stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i></span>
+						<p id="jiazhi">&yen;&nbsp;366.00</p>
+					</div>
+
+				</div>
+				<div class="col-lg-2">
+					<img src="img/hk2.jpg" class="img-responsive" />
+					<div class="szCaption">
+						<label class="badge">Python</label>
+						<a href="###">
+							<p>全网最热Python3入门+进阶 更快上手实际开发</p>
+						</a>
+						<span>实战</span>
+						<span>初级</span>
+						<span><i class="glyphicon glyphicon-user"></i>1196</span>
+						<span id="stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i></span>
+						<p id="jiazhi">&yen;&nbsp;366.00</p>
+					</div>
+
+				</div>
+				<div class="col-lg-2">
+					<img src="img/hk3.jpg" class="img-responsive" />
+					<div class="szCaption">
+						<div class="badge hotLabel">
+							<span>NEW</span>
+						</div>
+						<label class="badge">Python</label>
+						<a href="###">
+							<p>全网最热Python3入门+进阶 更快上手实际开发</p>
+						</a>
+						<span>实战</span>
+						<span>初级</span>
+						<span><i class="glyphicon glyphicon-user"></i>1196</span>
+						<span id="stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i></span>
+						<p id="jiazhi">&yen;&nbsp;366.00</p>
+					</div>
+
+				</div>
+				<div class="col-lg-2">
+					<img src="img/hk4.jpg" class="img-responsive" />
+					<div class="szCaption">
+						<label class="badge">Python</label>
+						<a href="###">
+							<p>全网最热Python3入门+进阶 更快上手实际开发</p>
+						</a>
+						<span>实战</span>
+						<span>初级</span>
+						<span><i class="glyphicon glyphicon-user"></i>1196</span>
+						<span id="stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i></span>
+						<p id="jiazhi">&yen;&nbsp;366.00</p>
+					</div>
+
+				</div>
+				<div class="col-lg-2">
+					<img src="img/hk5.jpg" class="img-responsive" />
+					<div class="szCaption">
+						<div class="badge hotLabel" id="hotTit">
+							<span>HOT</span>
+						</div>
+						<label class="badge">Python</label>
+						<a href="###">
+							<p>全网最热Python3入门+进阶 更快上手实际开发</p>
+						</a>
+						<span>实战</span>
+						<span>初级</span>
+						<span><i class="glyphicon glyphicon-user"></i>1196</span>
+						<span id="stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i></span>
+						<p id="jiazhi">&yen;&nbsp;366.00</p>
+					</div>
+
+				</div>
+			</div>
+			<div class="row shizhan">
+				<div class="col-lg-2">
+					<img src="img/hk1.jpg" class="img-responsive" />
+					<div class="szCaption">
+						<label class="badge">Python</label>
+						<a href="###">
+							<p>全网最热Python3入门+进阶 更快上手实际开发</p>
+						</a>
+						<span>实战</span>
+						<span>初级</span>
+						<span><i class="glyphicon glyphicon-user"></i>1196</span>
+						<span id="stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i></span>
+						<p id="jiazhi">&yen;&nbsp;366.00</p>
+					</div>
+
+				</div>
+				<div class="col-lg-2">
+					<img src="img/hk2.jpg" class="img-responsive" />
+					<div class="szCaption">
+						<label class="badge">Python</label>
+						<a href="###">
+							<p>全网最热Python3入门+进阶 更快上手实际开发</p>
+						</a>
+						<span>实战</span>
+						<span>初级</span>
+						<span><i class="glyphicon glyphicon-user"></i>1196</span>
+						<span id="stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i></span>
+						<p id="jiazhi">&yen;&nbsp;366.00</p>
+					</div>
+
+				</div>
+				<div class="col-lg-2">
+					<img src="img/hk3.jpg" class="img-responsive" />
+					<div class="szCaption">
+						<div class="badge hotLabel">
+							<span>NEW</span>
+						</div>
+						<label class="badge">Python</label>
+						<a href="###">
+							<p>全网最热Python3入门+进阶 更快上手实际开发</p>
+						</a>
+						<span>实战</span>
+						<span>初级</span>
+						<span><i class="glyphicon glyphicon-user"></i>1196</span>
+						<span id="stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i></span>
+						<p id="jiazhi">&yen;&nbsp;366.00</p>
+					</div>
+
+				</div>
+				<div class="col-lg-2">
+					<img src="img/hk4.jpg" class="img-responsive" />
+					<div class="szCaption">
+						<label class="badge">Python</label>
+						<a href="###">
+							<p>全网最热Python3入门+进阶 更快上手实际开发</p>
+						</a>
+						<span>实战</span>
+						<span>初级</span>
+						<span><i class="glyphicon glyphicon-user"></i>1196</span>
+						<span id="stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i></span>
+						<p id="jiazhi">&yen;&nbsp;366.00</p>
+					</div>
+
+				</div>
+				<div class="col-lg-2">
+					<img src="img/hk5.jpg" class="img-responsive" />
+					<div class="szCaption">
+						<div class="badge hotLabel" id="hotTit">
+							<span>HOT</span>
+						</div>
+						<label class="badge">Python</label>
+						<a href="###">
+							<p>全网最热Python3入门+进阶 更快上手实际开发</p>
+						</a>
+						<span>实战</span>
+						<span>初级</span>
+						<span><i class="glyphicon glyphicon-user"></i>1196</span>
+						<span id="stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+					    <i class="glyphicon glyphicon-star"></i></span>
+						<p id="jiazhi">&yen;&nbsp;366.00</p>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+		<!--精彩手记及猿问-->
+		<div class="container jcsjyw">
+			<div class="row">
+				<div class="col-lg-10 szbt">
+
+					<h3><img src="img/tn-1.jpg"/>
+						&nbsp;&nbsp;&nbsp;<em>精</em>&nbsp;/&nbsp;
+						<em>彩</em>&nbsp;/&nbsp;
+						<em>手</em>&nbsp;/&nbsp;
+												<em>记</em>&nbsp;/&nbsp;
+						<em>及</em>&nbsp;/&nbsp;
+												
+						<em>猿</em>&nbsp;/ &nbsp;
+						<em>问</em>&nbsp;/&nbsp;&nbsp;
+					<img src="img/tn-2.jpg"/></h3>
+
+				</div>
+			</div>
+			<div class="row" id=" jcsjjyw ">
+				<div class="col-lg-3 ">
+					<!--热门话题-->
+					<div class="row remen ">
+						<div class="col-lg-10 ">
+							<div class="badge ">
+								热门话题
+							</div>
+							<div class="media ">
+
+								<div class="media-body ">
+									<a href="### ">
+										<h4 class="media-heading media-middle ">#【花式填坑】第21期#<br> 对于现代前端必备技能Node.js，有什么想说的吗</h4>
+									</a>
+
+								</div>
+								<div class="media-right media-middle ">
+
+									<img class="media-object " src="img/rm1.jpg " alt="... ">
+
+								</div>
+								<p>
+									2009年Node.js诞生，默默无闻；2014年，获前端社区普遍接受；2017年npm跃升世界最大开源生态系统，Node.js俨然成为现代前端的必备技能。甚至在BAT，无法熟练使用 Node.js就不能胜任日常的前端开发工作。欢迎参与话题，一起来聊聊大公司都在用的Node.js究竟好在哪里。
+								</p>
+								<a href="### " class="pull-right ">
+									了解详情&nbsp;->
+								</a>
+							</div>
+							<div id="wqhg ">
+								往期回顾&nbsp;
+							</div>
+							<div class="media wqArticle ">
+
+								<div class="media-body ">
+									<a href="### ">
+										<h4 class="media-heading media-middle ">#【挨踢狗吐槽大会】#<br>是时候说说 #挨踢狗们の国庆假期#了</h4>
+									</a>
+								</div>
+								<div class="media-right media-middle ">
+
+									<img class="media-object " src="img/rm2.jpg " alt="... ">
+
+								</div>
+							</div>
+							<div class="media wqArticle ">
+
+								<div class="media-body ">
+									<a href="### ">
+										<h4 class="media-heading media-middle ">#【花式填坑】第20期#<br> 与Google大佬聊聊“成功猿（媛）”的标配？</h4>
+									</a>
+								</div>
+								<div class="media-right media-middle ">
+
+									<img class="media-object " src="img/rm3.jpg " alt="... ">
+
+								</div>
+							</div>
+							<div class="media wqArticle ">
+
+								<div class="media-body ">
+									<a href="### ">
+										<h4 class="media-heading media-middle ">#【花式填坑】第期19期#<br> PHP面试套路怎么玩？上车！360大牛亲自发车！</h4>
+									</a>
+								</div>
+								<div class="media-right media-middle ">
+
+									<img class="media-object " src="img/rm4.jpg " alt="... ">
+
+								</div>
+								<br>
+								<a href="### " class="pull-right " id=" moreTopic ">
+									<!--这里少了一对分号，代码就出错了，会变红 -->
+									更多往期话题 &nbsp;->
+								</a>
+
+							</div>
+						</div>
+
+					</div>
+					<!--相关猿问-->
+					<div class="row xgyw ">
+						<div class="col-lg-10 ">
+							<div class="ywbt ">
+								<span class="glyphicon glyphicon-question-sign "></span>相关猿问
+							</div>
+
+							<a href="### " id="tiaozhuan ">跳转不到下个页面</a>
+							<!--a不能设置外边距-->
+							<br>
+							<p id="caina ">已采纳回答</p>
+							<p id="wenda ">ActivityNotFoundExceptionhttp://blog.csdn.net/wtyqm/article/details/48771557</p>
+							<a href="### " class="pull-right " id="hdnum ">
+								<!--这里少了一对分号，代码就出错了，会变红 -->
+								共4个回答 &nbsp;-></a>
+						</div>
+					</div>
+					<div class="row xgyw ">
+						<div class="col-lg-10 ">
+							<div class="ywbt ">
+								<span class="glyphicon glyphicon-question-sign ">
+				    		</span>相关猿问
+							</div>
+							<a href="### " id="tiaozhuan ">哪位大神帮帮忙啊，求网页制作软件！</a>
+							<!--a不能设置外边距-->
+							<br>
+							<p id="caina ">最赞回答</p>
+							<p id="wenda ">Dreamweaver,sublime,之类的php和html代码都可以</p>
+							<a href="### " class="pull-right " id="hdnum ">
+								<!--这里少了一对分号，代码就出错了，会变红 -->
+								共2个回答 &nbsp;-></a>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-lg-3 ">
+					<!--手记文章-->
+					<div class="row sjArticle ">
+						<div class="col-lg-10 ">
+							<div class="sjTu ">
+								<span class="glyphicon glyphicon-book "></span> &nbsp;手记文章
+							</div>
+							<div class="media ">
+
+								<div class="media-body ">
+									<a href="### ">
+										<h4 class="media-heading media-middle ">Java面试资源----百度"Java面试题 "前2</h4>
+									</a>
+								</div>
+								<div class="media-right media-middle ">
+
+									<img class="media-object " src="img/sj1.jpg " alt="... ">
+
+								</div>
+								<p>
+									原文：唐尤华整理，原文链接 基本概念 操作系统中 heap 和 stack 的区别 什么是基于注解的切面实现 什么是 对象/关系 映射集成模块 什么是 Java 的反射机制 什么是 ACID BS与CS的联系与区别 Cookie 和 Session的区别 fail-fast 与 fail-safe 机制有什么区别 get 和 post请求的区别 Interface 与 abstract 类的区别 ...
+								</p>
+								<div class="sjBottom ">
+									<span class="pull-left ">浏览&nbsp;402</span>
+									<span class="pull-left ">推荐&nbsp;6</span>
+									<a href="### " class="pull-right ">
+										阅读全文&nbsp;->
+									</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="row sjArticle ">
+						<div class="col-lg-10 ">
+							<div class="sjTu ">
+								<span class="glyphicon glyphicon-book "></span>&nbsp;手记文章
+							</div>
+							<div class="media ">
+
+								<div class="media-body ">
+									<a href="### ">
+										<h4 class="media-heading media-middle ">Java面试资源----百度"Java面试题 "前2</h4>
+									</a>
+								</div>
+								<div class="media-right media-middle ">
+
+									<img class="media-object " src="img/sj2.jpg " alt="... ">
+
+								</div>
+								<p>
+									原文：唐尤华整理，原文链接 基本概念 操作系统中 heap 和 stack 的区别 什么是基于注解的切面实现 什么是 对象/关系 映射集成模块 什么是 Java 的反射机制 什么是 ACID BS与CS的联系与区别 Cookie 和 Session的区别 fail-fast 与 fail-safe 机制有什么区别 get 和 post请求的区别 Interface 与 abstract 类的区别 ...
+								</p>
+								<div class="sjBottom ">
+									<span class="pull-left ">浏览&nbsp;402</span>
+									<span class="pull-left ">推荐&nbsp;6</span>
+									<a href="### " class="pull-right ">
+										阅读全文&nbsp;->
+									</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="row sjArticle ">
+						<div class="col-lg-10 ">
+							<div class="sjTu ">
+								<span class="glyphicon glyphicon-book "></span>&nbsp;手记文章
+							</div>
+							<div class="media ">
+
+								<div class="media-body ">
+									<a href="### ">
+										<h4 class="media-heading media-middle ">Java面试资源----百度"Java面试题 "前2</h4>
+									</a>
+								</div>
+
+								<p>
+									作者：任何忧伤,都抵不过世界的美丽，原文地址 图解Java多线程笔记：http://tutorials.jenkov.com/java-concurrency/java-memory-model.html Java内存模型（JMM）定义了：how and when different threads can see values written to shared variables by oth...
+								</p>
+								<div class="sjBottom ">
+									<span class="pull-left ">浏览&nbsp;402</span>
+									<span class="pull-left ">推荐&nbsp;6</span>
+									<a href="### " class="pull-right ">
+										阅读全文&nbsp;->
+									</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="row xgyw ">
+						<div class="col-lg-10 ">
+							<div class="ywbt ">
+								<span class="glyphicon glyphicon-question-sign ">
+				    		</span>相关猿问
+							</div>
+
+							<a href="### " id="tiaozhuan ">跳转不到下个页面</a>
+							<!--a不能设置外边距-->
+							<br>
+							<p id="caina ">已采纳回答</p>
+							<p id="wenda ">ActivityNotFoundExceptionhttp://blog.csdn.net/wtyqm/article/details/48771557</p>
+							<a href="### " class="pull-right " id="hdnum ">
+								<!--这里少了一对分号，代码就出错了，会变红 -->
+								共4个回答 &nbsp;-></a>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-lg-3 ">
+					<div class="row sjArticle ">
+						<div class="col-lg-10 ">
+							<div class="sjTu ">
+								<span class="glyphicon glyphicon-book "></span>&nbsp;手记文章
+							</div>
+							<div class="media ">
+
+								<div class="media-body ">
+									<a href="### ">
+										<h4 class="media-heading media-middle ">Java面试资源----百度"Java面试题 "前2</h4>
+									</a>
+								</div>
+
+								<p>
+									作者：任何忧伤,都抵不过世界的美丽，原文地址 图解Java多线程笔记：http://tutorials.jenkov.com/java-concurrency/java-memory-model.html Java内存模型（JMM）定义了：how and when different threads can see values written to shared variables by oth...
+								</p>
+								<div class="sjBottom ">
+									<span class="pull-left ">浏览&nbsp;402</span>
+									<span class="pull-left ">推荐&nbsp;6</span>
+									<a href="### " class="pull-right ">
+										阅读全文&nbsp;->
+									</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="row sjArticle ">
+						<div class="col-lg-10 ">
+							<div class="sjTu ">
+								<span class="glyphicon glyphicon-book "></span>&nbsp;手记文章
+							</div>
+							<div class="media ">
+
+								<div class="media-body ">
+									<a href="### ">
+										<h4 class="media-heading media-middle ">Java面试资源----百度"Java面试题 "前2</h4>
+									</a>
+								</div>
+								<div class="media-right media-middle ">
+
+									<img class="media-object " src="img/sj3.jpg " alt="... ">
+
+								</div>
+								<p>
+									原文：唐尤华整理，原文链接 基本概念 操作系统中 heap 和 stack 的区别 什么是基于注解的切面实现 什么是 对象/关系 映射集成模块 什么是 Java 的反射机制 什么是 ACID BS与CS的联系与区别 Cookie 和 Session的区别 fail-fast 与 fail-safe 机制有什么区别 get 和 post请求的区别 Interface 与 abstract 类的区别 ...
+								</p>
+								<div class="sjBottom ">
+									<span class="pull-left ">浏览&nbsp;402</span>
+									<span class="pull-left ">推荐&nbsp;6</span>
+									<a href="### " class="pull-right ">
+										阅读全文 &nbsp;->
+									</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="row xgyw ">
+						<div class="col-lg-10 ">
+							<div class="ywbt ">
+								<span class="glyphicon glyphicon-question-sign ">
+									    		</span>相关猿问
+							</div>
+
+							<a href="### " id="tiaozhuan ">跳转不到下个页面</a>
+							<!--a不能设置外边距-->
+							<br>
+							<p id="caina ">已采纳回答</p>
+							<p id="wenda ">ActivityNotFoundExceptionhttp://blog.csdn.net/wtyqm/article/details/48771557</p>
+							<a href="### " class="pull-right " id="hdnum ">
+								<!--这里少了一对分号，代码就出错了，会变红 -->
+								共4个回答 &nbsp;-></a>
+						</div>
+					</div>
+					<div class="row xgyw ">
+						<div class="col-lg-10 ">
+							<div class="ywbt ">
+								<span class="glyphicon glyphicon-question-sign ">
+							    </span>相关猿问
+							</div>
+
+							<a href="### " id="tiaozhuan ">跳转不到下个页面</a>
+							<!--a不能设置外边距-->
+							<br>
+							<p id="caina ">已采纳回答</p>
+							<p id="wenda ">ActivityNotFoundExceptionhttp://blog.csdn.net/wtyqm/article/details/48771557</p>
+							<a href="### " class="pull-right " id="hdnum ">
+								<!--这里少了一对分号，代码就出错了，会变红 -->
+								共4个回答 &nbsp;->
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!--慕课精英名师-->
+		<div class="container-fluid mkTeacher ">
+			<div class="row ">
+				<div class="col-lg-10 szbt ">
+
+					<h3>
+					<span class="glyphicon glyphicon-align-right "></span>&nbsp;
+					<em>慕</em>&nbsp;/&nbsp;
+					<em>课</em>&nbsp;/&nbsp;				
+					<em>精</em>&nbsp;/&nbsp;
+					<em>英</em>&nbsp;/&nbsp;				
+					<em>名</em>&nbsp;/&nbsp;
+					<em>师</em>&nbsp;/&nbsp;
+					&nbsp;<span class="glyphicon glyphicon-align-left "></span>
+		       		</h3>
+
+				</div>
+			</div>
+			<div class="container teachers ">
+				<!--container-fluid里再加一个container，这样边距刚刚好-->
+				<div class="row ">
+					<div class="col-lg-2 " id="d" onmouseover="fade( 'a', 'b', 'c', 'd'); ">
+						<!--用onmouseover的话,鼠标移到字上就会出错-->
+						<a href="### ">
+							<div class="t-imgs ">
+								<img src="img/tc1.jpg " class="center-block " id="a" />
+							</div>
+							<div id="b">
+								<p class="t_name ">DocMike</p>
+								<p class="t_occup ">移动开发工程师</p>
+							</div>
+
+							<div class="t_capt " id="c">
+								<!--hidden加在这层上，span里溢出的内容才可以hidden-->
+								<span>安卓工程师  多年开发和带团队经验，曾在BAT等多家一线互联网公司就职，P大硕士毕业，应届生导师、校招、社招面试官，主导与开发过多款知名的互联网金融、免费国际电话、外卖等项目的架构与开发</span>
+
+							</div>
+						</a>
+
+					</div>
+					<div class="col-lg-2 " id="h" onmouseover="fade( 'e', 'f', 'g', 'h'); ">
+						<!--用onmouseover的话,鼠标移到字上就会出错-->
+						<a href="### ">
+							<div class="t-imgs ">
+								<img src="img/tc1.jpg " class="center-block " id="e" />
+							</div>
+							<div id="f">
+								<p class="t_name ">DocMike</p>
+								<p class="t_occup ">移动开发工程师</p>
+							</div>
+
+							<div class="t_capt " id="g">
+								<!--hidden加在这层上，span里溢出的内容才可以hidden-->
+								<span>
+					 	安卓工程师  多年开发和带团队经验，曾在BAT等多家一线互联网公司就职，P大硕士毕业，应届生导师、校招、社招面试官，主导与开发过多款知名的互联网金融、免费国际电话、外卖等项目的架构与开发
+					 </span>
+
+							</div>
+						</a>
+
+					</div>
+					<div class="col-lg-2 " id="dd" onmouseover="fade( 'aa', 'bb', 'cc', 'dd'); ">
+						<!--用onmouseover的话,鼠标移到字上就会出错-->
+						<a href="### ">
+							<div class="t-imgs ">
+								<img src="img/tc1.jpg " class="center-block " id="aa" />
+							</div>
+							<div id="bb">
+								<p class="t_name ">DocMike</p>
+								<p class="t_occup ">移动开发工程师</p>
+							</div>
+
+							<div class="t_capt " id="cc">
+								<!--hidden加在这层上，span里溢出的内容才可以hidden-->
+								<span>
+					 	安卓工程师  多年开发和带团队经验，曾在BAT等多家一线互联网公司就职，P大硕士毕业，应届生导师、校招、社招面试官，主导与开发过多款知名的互联网金融、免费国际电话、外卖等项目的架构与开发
+					 </span>
+
+							</div>
+						</a>
+
+					</div>
+					<div class="col-lg-2 " id="hh" onmouseover="fade( 'ee', 'ff', 'gg', 'hh'); ">
+						<!--用onmouseover的话,鼠标移到字上就会出错-->
+						<a href="### ">
+							<div class="t-imgs ">
+								<img src="img/tc1.jpg " class="center-block " id="ee" />
+							</div>
+							<div id="ff">
+								<p class="t_name ">DocMike</p>
+								<p class="t_occup ">移动开发工程师</p>
+							</div>
+
+							<div class="t_capt " id="gg">
+								<!--hidden加在这层上，span里溢出的内容才可以hidden-->
+								<span>
+					 	安卓工程师  多年开发和带团队经验，曾在BAT等多家一线互联网公司就职，P大硕士毕业，应届生导师、校招、社招面试官，主导与开发过多款知名的互联网金融、免费国际电话、外卖等项目的架构与开发
+					 </span>
+
+							</div>
+						</a>
+
+					</div>
+					<div class="col-lg-2 " id="4" onmouseover="fade( '1', '2', '3', '4'); ">
+						<!--用onmouseover的话,鼠标移到字上就会出错-->
+						<a href="### ">
+							<div class="t-imgs ">
+								<img src="img/tc1.jpg " class="center-block " id="1" />
+							</div>
+							<div id="2">
+								<p class="t_name ">DocMike</p>
+								<p class="t_occup ">移动开发工程师</p>
+							</div>
+
+							<div class="t_capt " id="3">
+								<!--hidden加在这层上，span里溢出的内容才可以hidden-->
+								<span>
+					 	安卓工程师  多年开发和带团队经验，曾在BAT等多家一线互联网公司就职，P大硕士毕业，应届生导师、校招、社招面试官，主导与开发过多款知名的互联网金融、免费国际电话、外卖等项目的架构与开发
+					 </span>
+
+							</div>
+						</a>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="container dztTeacher ">
+			<div class="row ">
+				<div class="col-lg-10 szbt ">
+
+					<h3><img src="img/tn-5.jpg "/>
+						&nbsp;&nbsp;&nbsp;<em>吊</em>&nbsp;/&nbsp;
+						<em>炸</em>&nbsp;/&nbsp;
+						<em>天</em>&nbsp;/&nbsp;
+						<em>全</em>&nbsp;/&nbsp;
+						<em>明</em>&nbsp;/&nbsp;
+												
+
+						<em>星</em>&nbsp;/&nbsp;&nbsp;
+					<img src="img/tn-6.jpg "/>
+					</h3>
+
+				</div>
+
+			</div>
+			<div class="row qmx ">
+				<div class="col-lg-3 ">
+
+				</div>
+				<div class="col-lg-1 ">
+					<div class="row ">
+						<div class="col-lg-10 ">
+							<div class="glyphicon glyphicon-education "></div>
+							<img src="img/mx1.jpg " />
+							<p id="line1 ">快乐动起来呀</p>
+							<p id="line2 ">风骚课程学霸</p>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 ">
+					<div class="row ">
+						<div class="col-lg-10 ">
+							<div class="glyphicon glyphicon-education "></div>
+							<img src="img/mx1.jpg " />
+							<p id="line1 ">快乐动起来呀</p>
+							<p id="line2 ">风骚课程学霸</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 ">
+					<div class="row ">
+						<div class="col-lg-10 ">
+							<div class="glyphicon glyphicon-education "></div>
+							<img src="img/mx1.jpg " />
+							<p id="line1 ">快乐动起来呀</p>
+							<p id="line2 ">风骚课程学霸</p>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1 ">
+					<div class="row ">
+						<div class="col-lg-10 ">
+							<div class="glyphicon glyphicon-education "></div>
+							<img src="img/mx1.jpg " />
+							<p id="line1 ">快乐动起来呀</p>
+							<p id="line2 ">风骚课程学霸</p>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="container-fluid footer ">
+			<div class="row ">
+				<div class="col-lg-8 ">
+					<div class="row yqlj ">
+						<div class="col-lg-10 ">
+							<a href="### ">企业合作</a>
+							<a href="### ">人才招聘</a>
+							<a href="### ">联系我们</a>
+							<a href="### ">企业合作</a>
+							<a href="### ">企业合作</a>
+							<a href="### ">人才招聘</a>
+							<a href="### ">联系我们</a>
+							<a href="### ">企业合作</a>
+						</div>
+					</div>
+					<div class="row right ">
+						<div class="col-lg-10 ">
+							<span>© 2017 imooc.com  京ICP备 13046642号-2></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 ">
+
+					<div class="row ">
+
+						<div class="col-lg-5 ">
+							<div class="icon1 ">
+								<img src="img/weixin.png " />
+								<i class="iconfont icon-weixin "></i>
+								<p>官方公众号</p>
+							</div>
+						</div>
+						<div class="col-lg-5 ">
+							<div class="icon2 ">
+								<i class="iconfont icon-weibo "></i>
+								<p>官方微博</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+		<div class="youbu ">
+			<ul class="list-group " id="listlist ">
+				<li class="list-group-item ">
+					<a href="## " class="glyphicon glyphicon-edit "></a>
+				</li>
+				<li class="list-group-item ">
+					<a href="## " class="glyphicon glyphicon-question-sign "></a>
+				</li>
+				<li class="list-group-item ">
+					<a href="## " class="glyphicon glyphicon-phone "></a>
+				</li>
+				<li class="list-group-item ">
+					<a href="## " class="glyphicon glyphicon-edit "></a>
+				</li>
+				<li class="list-group-item ">
+					<a href="## " class="glyphicon glyphicon-chevron-up "></a>
+				</li>
+			</ul>
+		</div>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js "></script>
+		<!--jquery.min.js一定要放在bootstrap.min.js前面-->
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js "></script>
+		<!-- Small modal -->
+	</body>
+
+</html>

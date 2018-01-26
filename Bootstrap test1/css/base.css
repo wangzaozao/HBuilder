@@ -1,0 +1,274 @@
+a:hover{
+	text-decoration: none;
+}
+.navbar{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 16px;
+}
+.navbar-default{
+	border: none;
+}
+.navbar-brand{
+	padding: 0;
+}
+body{
+	padding-top: 90px;
+}
+#dh a{
+	padding-left: 30px;
+}
+#dh a:hover{
+	color: red;
+}
+.navbar-text{
+	font-size: 12px;
+	font-color:#0f0f0f;
+}
+.navbar-text a{
+	color:#777;
+	
+}
+.navbar-text a:hover{
+	color: red;
+	text-decoration: none;
+}
+.carousel-indicators .active{
+	background-color: red;
+}
+.wz{
+	margin-top: 60px;
+}
+.dbt{
+	font-size: 40px;
+}
+.ad,.bt2{
+	color: #666;
+}
+.ad{
+	margin-top:15px;
+	margin-bottom: 15px;
+}
+.ad:before,.ad:after{/*添加文字前面的横线*/
+	background-color: #cdcdcd;
+	content: "";
+	display: inline-block;
+	height: 1px;
+	width: 10%;
+	vertical-align: middle;
+}
+/*services*/
+.services{
+	margin-top: 50px;
+	text-align: center;/*文字对齐方式*/
+	color: #666;
+}
+.services .s1{
+	padding-top: 15px;
+	font-size: 26px;
+}
+.services .s2:before,.services .s2:after,.caseTitle p:before,.caseTitle p:after{/*添加文字前面的横线*/
+	background-color: #cdcdcd;
+	content: "";
+	display: inline-block;
+	height: 1px;
+	width: 8%;/*用百分比可随着屏幕大小变化而变化*/
+	vertical-align: middle;	
+}
+/*cases*/
+.caseTitle{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+/*footer*/
+.footer{
+	margin-top: 40px;
+}
+.tubiao{
+	padding-top: 30px;
+}
+.footer dt{
+	padding-bottom:15px ;
+}
+.tubiao i{
+	font-size: 60px;
+}
+.tubiao a{
+	text-decoration: none;
+}
+
+.tubiao .icon-tuite_twitter{
+	color:#00aeef;
+}
+.tubiao .icon-weixin{
+	color:#2f9833;
+}
+.tubiao .icon-xinlang{
+	color:#f40906;
+}
+.tubiao .icon-tian7_facebook{
+	color:#3b5b98;
+}
+.footer2{
+	margin-top: 50px;
+}
+.footer3{
+	line-height: 40px;
+}
+.footer3 a{
+	color: #666;
+}
+/*list*/
+/*banner*/
+.listBanner{
+	padding: 0px;
+}
+.listContainer{
+	margin-top: 40px;
+}
+.listLeft{
+	padding-right: 50px;
+}
+.listLeft h3{
+	margin-top:0px;
+	font-weight: bolder;
+}
+.listDes{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.listList{
+	margin-bottom: 40px;
+}
+.listPage{
+	text-align: center;
+}
+.pagination>li>a, .pagination>li>span{
+	color: #666;
+}
+/*listRight*/
+.our{
+	font-size: 16px;
+	text-align: center;
+}
+.ourTitle{
+	font-size: 16px;
+	font-weight:bolder;
+	background: #ededed;
+	border-top: 0px;
+	border-left:0px;
+	border-right:0px;
+}
+.our a{
+	border-left: 0px;
+	border-right: 0px;
+}
+.articleTitle{
+	text-align: center;
+	font-size: 16px;
+	font-weight: bolder;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	background: #ededed;
+	border-bottom: 1px solid #dddS;
+}
+.articleList h4{
+	color: #080808;
+	font-size: 15px;
+	font-weight: bolder;
+	padding-bottom: 10px;
+}
+/*列表页*/
+.breadcrumb{
+	padding-left: 0px;
+}
+.content{
+	padding-top: 30px;
+	
+}
+.ctitle{
+	text-align: center;	
+}
+.ctitle h2{
+	font-weight: bolder;
+}
+.ctitle p{
+	padding-top: 10px;
+	padding-bottom: 20px;
+	color:#666 ;
+}
+.ccontent{
+	line-height: 30px;
+	color: #666;
+}
+@media only screen and (max-width: 768px) {
+	.navbar{
+		padding-top: 0px;
+		padding-bottom: 0px;
+		text-align: center;
+	}
+	
+body{
+	padding-top: 50px;
+}
+	.logo{
+	height: 35px;
+	}
+	.navbar-brand{
+		padding-top: 5px;
+		padding-left: 10px;
+	}
+	.dbt{
+		font-size: 20px;
+	}
+	.footer i{
+		font-size: 30px;
+	}
+	.tubiao{
+		padding-top: 0px;
+	}
+	.footer2{
+		margin-top: 0px;
+	}
+	.logo2{
+		height: 40px;
+	}
+/*list*/
+.listList img{
+	text-align: center;
+}
+.listLeft{
+	padding-right: 0px;
+}
+.listList h3{
+	margin-top:20px;
+	text-align: center;
+}
+.xsdh{
+	text-align: center;
+	padding-bottom: 20px;
+}
+.xsdh a{
+	color: #fff;
+}
+.xsdh button{
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.article li{
+	padding-left: 18%;
+
+}
+/*content*/
+.ctitle h2{
+	font-size: 16px;
+}
+.content{
+	padding-top: 0px;
+}
+.breadcrumb{
+	text-align: center;
+}
+}
+
